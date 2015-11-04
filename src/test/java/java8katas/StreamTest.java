@@ -3,7 +3,9 @@ package java8katas;
 import static java.util.Arrays.asList;
 import static org.assertj.core.api.Assertions.*;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.junit.Test;
 
@@ -28,5 +30,19 @@ public class StreamTest {
         List<List<String>> collection = asList(asList("Viktor", "Farcic"), asList("John", "Doe", "Third"));
         List<String> expected = asList("Viktor", "Farcic", "John", "Doe", "Third");
         assertThat(Stream.flatten(collection)).hasSameElementsAs(expected);
+    }
+    
+    private Map<String, Object> createPerson(String name, int age){
+	   Map<String, Object> newPerson = new HashMap<String, Object>();
+	   newPerson.put("name", name);
+	   newPerson.put("age", age);
+       return newPerson;
+    }
+    
+    @Test
+    public void transformShouldReturnOldestPerson() {
+    	Map<String, Object> eva = createPerson("Eva", 42);
+    	List<Map<String, Object>> collection = asList(createPerson("Sara", 38), eva, createPerson("Viktor", 40));
+        assertThat(Stream.getOldestPerson(collection)).isEqualTo(eva);
     }
 }
