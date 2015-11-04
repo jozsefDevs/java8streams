@@ -3,6 +3,7 @@ package java8katas;
 import static java.util.Arrays.asList;
 import static org.assertj.core.api.Assertions.*;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -47,5 +48,11 @@ public class StreamTest {
     	Map<String, Object> eva = createPerson("Eva", 42);
     	List<Map<String, Object>> collection = asList(createPerson("Sara", 38), eva, createPerson("Viktor", 40));
         assertThat(Stream.getOldestPerson(collection)).isEqualTo(eva);
+    }
+    
+    @Test
+    public void transformToSum() {
+        List<Integer> numbers = asList(1, 2, 3, 4, 5);
+        assertThat(Stream.toSum(numbers)).isEqualTo(1 + 2 + 3 + 4 + 5);
     }
 }

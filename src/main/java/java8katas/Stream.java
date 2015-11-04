@@ -17,4 +17,9 @@ public class Stream {
 	public static Map<String, Object> getOldestPerson(List<Map<String, Object>> list){
 		return list.stream().reduce( (x, y) -> (int)x.get("age") >= (int)y.get("age") ? x : y).get();
 	}
+	public static int toSum(List<Integer> list){
+		return list.stream().reduce(Integer::sum).get();
+// OR
+//		return list.stream().reduce( (x, y) -> x + y).get();
+	}
 }
