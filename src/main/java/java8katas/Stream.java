@@ -22,4 +22,11 @@ public class Stream {
 // OR
 //		return list.stream().reduce(0, (x, y) -> x + y).get();
 	}
+	public static List<String> getKidNames(List<Map<String, Object>> list){
+		return list.stream()
+				.filter(x -> (int)x.get("age") < 18)
+				.map(y -> (String)y.get("name"))
+				.collect(Collectors.toList());
+	}
+	
 }

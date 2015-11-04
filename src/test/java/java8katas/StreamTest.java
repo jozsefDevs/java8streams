@@ -56,4 +56,12 @@ public class StreamTest {
         assertThat(Stream.toSum(numbers)).isEqualTo(1 + 2 + 3 + 4 + 5);
         assertThat(Stream.toSum(new ArrayList<Integer>())).isEqualTo(0);
     }
+    
+    @Test
+    public void transformGetKidNames() {
+        List<Map<String, Object>> collection = asList(createPerson("Sara", 4), createPerson("Eva", 42), createPerson("Viktor", 40), createPerson("Anna", 5));
+        assertThat(Stream.getKidNames(collection))
+                .contains("Sara", "Anna")
+                .doesNotContain("Viktor", "Eva");
+    }
 }
