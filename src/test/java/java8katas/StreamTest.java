@@ -13,14 +13,14 @@ public class StreamTest {
     public void transformShouldConvertCollectionElementsToUpperCase() {
         List<String> collection = asList("My", "name", "is", "John", "Doe");
         List<String> expected = asList("MY", "NAME", "IS", "JOHN", "DOE");
-        assertThat(Stream.transform(collection)).hasSameElementsAs(expected);
+        assertThat(Stream.upperCaseCollection(collection)).hasSameElementsAs(expected);
     }
     
     @Test
     public void transformShouldFilterCollectionLessThan4Characters() {
         List<String> collection = asList("My", "name", "is", "John", "Doe");
         List<String> expected = asList("My", "is", "Doe");
-        assertThat(Stream.transformShouldFilterCollectionLessThan4Characters(collection)).hasSameElementsAs(expected);
+        assertThat(Stream.filterLessThanCharacters(collection, 4)).hasSameElementsAs(expected);
     }
     
     @Test
