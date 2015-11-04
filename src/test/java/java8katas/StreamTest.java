@@ -54,5 +54,6 @@ public class StreamTest {
     public void transformToSum() {
         List<Integer> numbers = asList(1, 2, 3, 4, 5);
         assertThat(Stream.toSum(numbers)).isEqualTo(1 + 2 + 3 + 4 + 5);
+        assertThat(Stream.toSum(new ArrayList<Integer>())).isEqualTo(0);
     }
 }

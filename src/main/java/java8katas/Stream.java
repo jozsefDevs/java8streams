@@ -18,8 +18,8 @@ public class Stream {
 		return list.stream().reduce( (x, y) -> (int)x.get("age") >= (int)y.get("age") ? x : y).get();
 	}
 	public static int toSum(List<Integer> list){
-		return list.stream().reduce(Integer::sum).get();
+		return list.stream().reduce(0, Integer::sum);
 // OR
-//		return list.stream().reduce( (x, y) -> x + y).get();
+//		return list.stream().reduce(0, (x, y) -> x + y).get();
 	}
 }
